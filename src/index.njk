@@ -41,7 +41,7 @@ title: Home
               {% if review.data.rating %}
               <span class="card-rating">
                 {% for i in range(0, review.data.rating) %}⭐{% endfor %}
-                {{ review.data.rating }}/5
+                {{ review.data.ratingDisplay or review.data.rating }}/5
               </span>
               {% endif %}
 

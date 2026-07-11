@@ -10,7 +10,7 @@ layout: layouts/base.njk
       {% if rating %}
       <span class="review-rating" aria-label="Rating: {{ rating }} out of 5">
         {% for i in range(0, rating) %}⭐{% endfor %}
-        <span class="rating-text">{{ rating }}/5</span>
+        <span class="rating-text">{{ ratingDisplay or rating }}/5</span>
       </span>
       {% endif %}
 
