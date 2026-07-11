@@ -4,6 +4,7 @@ director: "Christopher Nolan"
 year: 2023
 rating: 5
 tagline: "A monumental achievement in biographical filmmaking."
+letterboxdReviewUrl: ""
 date: 2023-07-21
 ---
 

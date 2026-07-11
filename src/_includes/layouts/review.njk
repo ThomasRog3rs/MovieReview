@@ -36,6 +36,28 @@ layout: layouts/base.njk
     {{ content | safe }}
   </div>
 
+  {% if letterboxdReviewUrl %}
+  <section class="review-letterboxd" aria-label="Letterboxd review link">
+    <p class="review-letterboxd-text">If you enjoyed this review, like it on Letterboxd.</p>
+    <a
+      href="{{ letterboxdReviewUrl }}"
+      class="letterboxd-link letterboxd-link-cta review-letterboxd-link"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Like this review on Letterboxd"
+    >
+      <span class="letterboxd-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 24" role="img" focusable="false">
+          <circle cx="12" cy="12" r="8" fill="#40bc67"></circle>
+          <circle cx="24" cy="12" r="8" fill="#ff8000"></circle>
+          <circle cx="36" cy="12" r="8" fill="#00a7e1"></circle>
+        </svg>
+      </span>
+      <span>Like on Letterboxd</span>
+    </a>
+  </section>
+  {% endif %}
+
   <footer class="review-footer">
     <a href="{{ '/' | url }}" class="back-link">&larr; All Reviews</a>
   </footer>

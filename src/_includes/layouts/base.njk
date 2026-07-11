@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% if title %}{{ title }} | {% endif %}Movie Reviews</title>
+    <title>{% if title %}{{ title }} | {% endif %}Movie Tweg</title>
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
   </head>
   <body>
     <header class="site-header">
       <div class="container">
-        <a href="{{ '/' | url }}" class="site-title">🎬 Movie Reviews</a>
+        <a href="{{ '/' | url }}" class="site-title">🎬 Movie Tweg</a>
         <nav>
           <a href="{{ '/' | url }}">Home</a>
           <a href="{{ '/about/' | url }}">About</a>
@@ -23,7 +23,23 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>Movie Reviews &copy; {% currentYear %}</p>
+        <p class="footer-brand">Movie Tweg &copy; {% currentYear %}</p>
+        <a
+          href="https://letterboxd.com/Tweg5/"
+          class="letterboxd-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow Tweg5 on Letterboxd"
+        >
+          <span class="letterboxd-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 24" role="img" focusable="false">
+              <circle cx="12" cy="12" r="8" fill="#40bc67"></circle>
+              <circle cx="24" cy="12" r="8" fill="#ff8000"></circle>
+              <circle cx="36" cy="12" r="8" fill="#00a7e1"></circle>
+            </svg>
+          </span>
+          <span>Follow me on Letterboxd</span>
+        </a>
       </div>
     </footer>
   </body>

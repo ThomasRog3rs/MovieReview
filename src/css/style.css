@@ -96,6 +96,52 @@ main.container { flex: 1; padding-block: 2.5rem; }
   color: var(--clr-muted);
 }
 
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  margin: 0;
+}
+
+.letterboxd-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--clr-text);
+  background: var(--clr-surface2);
+  border: 1px solid var(--clr-border);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-weight: 600;
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s, color 0.2s;
+}
+
+.letterboxd-link:hover {
+  text-decoration: none;
+  color: var(--clr-accent);
+  border-color: var(--clr-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.letterboxd-icon {
+  width: 3rem;
+  height: 1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.letterboxd-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 /* ── Hero / Page Banner ─────────────────────────────────── */
 .hero {
   margin-bottom: 2.5rem;
@@ -181,6 +227,30 @@ main.container { flex: 1; padding-block: 2.5rem; }
 
 .no-reviews { color: var(--clr-muted); }
 
+/* ── Letterboxd CTA ─────────────────────────────────────── */
+.letterboxd-cta {
+  margin: 0 0 2rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(64, 188, 103, 0.1), rgba(0, 167, 225, 0.08));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.letterboxd-cta-text {
+  margin: 0;
+  color: var(--clr-text);
+  font-size: 0.92rem;
+}
+
+.letterboxd-link-cta {
+  background: rgba(0, 0, 0, 0.25);
+}
+
 /* ── Single Review ──────────────────────────────────────── */
 .review-header {
   margin-bottom: 2rem;
@@ -223,6 +293,29 @@ main.container { flex: 1; padding-block: 2.5rem; }
   margin-top: 0.5rem;
   font-style: italic;
   font-family: var(--font-serif);
+}
+
+.review-letterboxd {
+  margin-top: 2rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(64, 188, 103, 0.1), rgba(0, 167, 225, 0.08));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.review-letterboxd-text {
+  margin: 0;
+  color: var(--clr-text);
+  font-size: 0.92rem;
+}
+
+.review-letterboxd-link {
+  background: rgba(0, 0, 0, 0.25);
 }
 
 /* ── Article Body ────────────────────────────────────────── */
@@ -298,4 +391,6 @@ main.container { flex: 1; padding-block: 2.5rem; }
   .review-title { font-size: 1.5rem; }
   .hero h1 { font-size: 1.6rem; }
   .site-header .container { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .site-footer .container { flex-direction: column; }
+  .letterboxd-cta { flex-direction: column; align-items: flex-start; }
 }

@@ -4,6 +4,7 @@ director: "Denis Villeneuve"
 year: 2024
 rating: 5
 tagline: "A breathtaking continuation of an epic saga."
+letterboxdReviewUrl: ""
 date: 2024-03-05
 ---
 
