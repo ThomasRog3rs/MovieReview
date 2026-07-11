@@ -1,0 +1,14 @@
+{
+  "name": "movie-review-blog",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A static site for movie reviews, built with Eleventy",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "dev": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

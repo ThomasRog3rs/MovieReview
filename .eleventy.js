@@ -1,0 +1,36 @@
+export default function (eleventyConfig) {
+  // Copy static assets to output
+  eleventyConfig.addPassthroughCopy("src/css");
+
+  // Date filters
+  eleventyConfig.addFilter("readableDate", (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  });
+
+  eleventyConfig.addFilter("htmlDateString", (date) => {
+    return new Date(date).toISOString().split("T")[0];
+  });
+
+  // Create a collection of all reviews, sorted by date (newest first)
+  eleventyConfig.addCollection("reviews", function (collectionApi) {
+    return collectionApi
+      .getFilteredByTag("review")
+      .sort((a, b) => b.date - a.date);
+  });
+
+  return {
+    dir: {
+      input: "src",
+      output: "_site",
+      includes: "_includes",
+      data: "_data",
+    },
+    templateFormats: ["njk", "md", "html"],
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
+  };
+}
