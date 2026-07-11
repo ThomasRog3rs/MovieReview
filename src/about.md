@@ -13,6 +13,6 @@ permalink: /about/
   </p>
   <p>
     New reviews are posted after every watch. Feel free to browse by
-    <a href="/">all reviews</a>.
+    <a href="{{ '/' | url }}">all reviews</a>.
   </p>
 </article>
