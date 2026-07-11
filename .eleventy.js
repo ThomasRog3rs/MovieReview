@@ -15,7 +15,13 @@ export default function (eleventyConfig) {
     return new Date(date).toISOString().split("T")[0];
   });
 
-  // Create a collection of all reviews, sorted by date (newest first)
+  // Current year shortcode (for footer copyright)
+  eleventyConfig.addShortcode("currentYear", () =>
+    String(new Date().getFullYear())
+  );
+
+  // Collection named "reviews" (plural) built from items tagged "review" (singular).
+  // Accessible in templates as collections.reviews.
   eleventyConfig.addCollection("reviews", function (collectionApi) {
     return collectionApi
       .getFilteredByTag("review")

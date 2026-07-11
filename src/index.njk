@@ -9,7 +9,7 @@ title: Home
 </section>
 
 <section class="reviews-list">
-  {% if collections.reviews.length %}
+  {% if collections.reviews and collections.reviews.length %}
     <ul class="review-cards">
       {% for review in collections.reviews %}
       <li class="review-card">
