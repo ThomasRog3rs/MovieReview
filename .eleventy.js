@@ -15,6 +15,20 @@ export default function (eleventyConfig) {
     return new Date(date).toISOString().split("T")[0];
   });
 
+  eleventyConfig.addFilter("excerpt", (content, length = 180) => {
+    const text = String(content ?? "")
+      .replace(/<[^>]*>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (text.length <= length) {
+      return text;
+    }
+
+    const cutoff = text.lastIndexOf(" ", length);
+    return `${text.slice(0, cutoff <= 0 ? length : cutoff).trim()}…`;
+  });
+
   // Current year shortcode (for footer copyright)
   eleventyConfig.addShortcode("currentYear", () =>
     String(new Date().getFullYear())
@@ -29,7 +43,7 @@ export default function (eleventyConfig) {
   });
 
   return {
-    pathPrefix: "/MovieReview/",
+    pathPrefix: process.env.ELEVENTY_PATH_PREFIX || "/",
     dir: {
       input: "src",
       output: "_site",

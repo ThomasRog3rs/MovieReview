@@ -34,8 +34,8 @@ title: Home
               {% endif %}
             </div>
 
-            {% if review.data.tagline %}
-            <p class="card-tagline">{{ review.data.tagline }}</p>
+            {% if review.templateContent %}
+            <p class="card-tagline">{{ review.templateContent | excerpt }}</p>
             {% endif %}
 
             <time class="card-date" datetime="{{ review.date | htmlDateString }}">
