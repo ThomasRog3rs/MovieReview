@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+
+<section class="hero">
+  <h1>Movie Reviews</h1>
+  <p>Honest takes on the films I've watched.</p>
+</section>
+
+<section class="reviews-list">
+  {% if collections.reviews and collections.reviews.length %}
+    <ul class="review-cards">
+      {% for review in collections.reviews %}
+      <li class="review-card">
+        <a href="{{ review.url }}">
+          <div class="card-content">
+            <h2 class="card-title">{{ review.data.title }}</h2>
+
+            <div class="card-meta">
+              {% if review.data.rating %}
+              <span class="card-rating">
+                {% for i in range(0, review.data.rating) %}⭐{% endfor %}
+                {{ review.data.rating }}/5
+              </span>
+              {% endif %}
+
+              {% if review.data.year %}
+              <span class="card-year">{{ review.data.year }}</span>
+              {% endif %}
+
+              {% if review.data.director %}
+              <span class="card-director">Dir. {{ review.data.director }}</span>
+              {% endif %}
+            </div>
+
+            {% if review.data.tagline %}
+            <p class="card-tagline">{{ review.data.tagline }}</p>
+            {% endif %}
+
+            <time class="card-date" datetime="{{ review.date | htmlDateString }}">
+              {{ review.date | readableDate }}
+            </time>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="no-reviews">No reviews yet — check back soon!</p>
+  {% endif %}
+</section>

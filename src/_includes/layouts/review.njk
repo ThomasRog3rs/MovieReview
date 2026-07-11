@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="review">
+  <header class="review-header">
+    <h1 class="review-title">{{ title }}</h1>
+
+    <div class="review-meta">
+      {% if rating %}
+      <span class="review-rating" aria-label="Rating: {{ rating }} out of 5">
+        {% for i in range(0, rating) %}⭐{% endfor %}
+        <span class="rating-text">{{ rating }}/5</span>
+      </span>
+      {% endif %}
+
+      {% if director %}
+      <span class="review-director">Directed by <strong>{{ director }}</strong></span>
+      {% endif %}
+
+      {% if year %}
+      <span class="review-year">{{ year }}</span>
+      {% endif %}
+
+      <time class="review-date" datetime="{{ page.date | htmlDateString }}">
+        {{ page.date | readableDate }}
+      </time>
+    </div>
+
+    {% if tagline %}
+    <p class="review-tagline"><em>{{ tagline }}</em></p>
+    {% endif %}
+  </header>
+
+  <div class="review-body">
+    {{ content | safe }}
+  </div>
+
+  <footer class="review-footer">
+    <a href="/" class="back-link">&larr; All Reviews</a>
+  </footer>
+</article>
