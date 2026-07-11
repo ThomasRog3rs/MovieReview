@@ -16,7 +16,7 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("excerpt", (content, length = 180) => {
-    const text = content
+    const text = String(content ?? "")
       .replace(/<[^>]*>/g, " ")
       .replace(/\s+/g, " ")
       .trim();
