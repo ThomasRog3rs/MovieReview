@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% if title %}{{ title }} | {% endif %}Movie Reviews</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
   </head>
   <body>
     <header class="site-header">
       <div class="container">
-        <a href="/" class="site-title">🎬 Movie Reviews</a>
+        <a href="{{ '/' | url }}" class="site-title">🎬 Movie Reviews</a>
         <nav>
-          <a href="/">Home</a>
-          <a href="/about/">About</a>
+          <a href="{{ '/' | url }}">Home</a>
+          <a href="{{ '/about/' | url }}">About</a>
         </nav>
       </div>
     </header>

@@ -29,6 +29,7 @@ export default function (eleventyConfig) {
   });
 
   return {
+    pathPrefix: "/MovieReview/",
     dir: {
       input: "src",
       output: "_site",

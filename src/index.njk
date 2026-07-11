@@ -13,7 +13,7 @@ title: Home
     <ul class="review-cards">
       {% for review in collections.reviews %}
       <li class="review-card">
-        <a href="{{ review.url }}">
+        <a href="{{ review.url | url }}">
           <div class="card-content">
             <h2 class="card-title">{{ review.data.title }}</h2>
 
