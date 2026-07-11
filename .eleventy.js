@@ -25,7 +25,8 @@ export default function (eleventyConfig) {
       return text;
     }
 
-    return `${text.slice(0, text.lastIndexOf(" ", length)).trim()}…`;
+    const cutoff = text.lastIndexOf(" ", length);
+    return `${text.slice(0, cutoff === -1 ? length : cutoff).trim()}…`;
   });
 
   // Current year shortcode (for footer copyright)
