@@ -82,16 +82,21 @@ main { flex: 1; padding-block: 3rem; }
 }
 
 .site-title {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--clr-text);
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
 }
-.site-title:hover { text-decoration: none; color: var(--clr-accent); }
 
-.site-logo { display: none; } /* Replaced by elegant wordmark */
+.site-title:hover { text-decoration: none; }
+
+.site-logo {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: cover;
+  border: 1px solid var(--clr-border-hover);
+  border-radius: 50%;
+}
 
 .site-nav {
   display: flex;
@@ -110,6 +115,21 @@ main { flex: 1; padding-block: 3rem; }
 .site-nav a:hover {
   color: var(--clr-text);
   text-decoration: none;
+}
+
+@media (max-width: 30rem) {
+  .site-header .container {
+    padding-block: 0.75rem;
+  }
+
+  .site-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .site-nav {
+    gap: 1.25rem;
+  }
 }
 
 .home-page .site-header {
