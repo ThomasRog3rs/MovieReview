@@ -9,7 +9,10 @@
   <body>
     <header class="site-header">
       <div class="container">
-        <a href="{{ '/' | url }}" class="site-title">🎬 Movie Tweg</a>
+        <a href="{{ '/' | url }}" class="site-title" aria-label="Movie Tweg home">
+          <img src="{{ '/logo.jpg' | url }}" alt="Movie Tweg logo" class="site-logo" />
+          <span class="site-title-text">Movie Tweg</span>
+        </a>
         <nav>
           <a href="{{ '/' | url }}">Home</a>
           <a href="{{ '/about/' | url }}">About</a>

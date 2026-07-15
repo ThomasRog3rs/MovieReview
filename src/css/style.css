@@ -61,11 +61,27 @@ main.container { flex: 1; padding-block: 2.5rem; }
 }
 
 .site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-size: 1.3rem;
   font-weight: 800;
   color: var(--clr-accent);
   text-decoration: none;
   letter-spacing: 0.02em;
+}
+
+.site-logo {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.28);
+}
+
+.site-title-text {
+  line-height: 1;
 }
 
 .site-title:hover { text-decoration: none; opacity: 0.9; }

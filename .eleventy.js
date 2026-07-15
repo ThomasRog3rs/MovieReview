@@ -1,6 +1,7 @@
 export default function (eleventyConfig) {
   // Copy static assets to output
   eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/logo.jpg");
 
   // Date filters
   eleventyConfig.addFilter("readableDate", (date) => {
