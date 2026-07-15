@@ -2,33 +2,34 @@
 layout: layouts/base.njk
 ---
 
-<article class="review">
+<article class="review-article container">
   <header class="review-header">
     <h1 class="review-title">{{ title }}</h1>
 
-    <div class="review-meta">
-      {% if rating %}
-      <span class="review-rating" aria-label="Rating: {{ rating }} out of 5">
-        {% for i in range(0, rating) %}⭐{% endfor %}
-        <span class="rating-text">{{ ratingDisplay or rating }}/5</span>
-      </span>
-      {% endif %}
-
+    <div class="review-meta-bar">
       {% if director %}
-      <span class="review-director">Directed by <strong>{{ director }}</strong></span>
+      <span class="review-meta-item">Dir. <strong>{{ director }}</strong></span>
       {% endif %}
 
       {% if year %}
-      <span class="review-year">{{ year }}</span>
+      <span class="review-meta-item">{{ year }}</span>
       {% endif %}
+      
+      <span class="review-meta-item">
+        <time datetime="{{ page.date | htmlDateString }}">
+          {{ page.date | readableDate }}
+        </time>
+      </span>
 
-      <time class="review-date" datetime="{{ page.date | htmlDateString }}">
-        {{ page.date | readableDate }}
-      </time>
+      {% if rating %}
+      <span class="review-meta-item review-rating-display" aria-label="Rating: {{ rating }} out of 5">
+        {% for i in range(0, rating) %}★{% endfor %}
+      </span>
+      {% endif %}
     </div>
 
     {% if tagline %}
-    <p class="review-tagline"><em>{{ tagline }}</em></p>
+    <p class="review-tagline">{{ tagline }}</p>
     {% endif %}
   </header>
 
@@ -36,29 +37,13 @@ layout: layouts/base.njk
     {{ content | safe }}
   </div>
 
-  {% if letterboxdReviewUrl %}
-  <section class="review-letterboxd" aria-label="Letterboxd review link">
-    <p class="review-letterboxd-text">If you enjoyed this review, like it on Letterboxd.</p>
-    <a
-      href="{{ letterboxdReviewUrl }}"
-      class="letterboxd-link letterboxd-link-cta review-letterboxd-link"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Like this review on Letterboxd"
-    >
-      <span class="letterboxd-icon" aria-hidden="true">
-        <svg viewBox="0 0 64 24" role="img" focusable="false">
-          <circle cx="12" cy="12" r="8" fill="#40bc67"></circle>
-          <circle cx="24" cy="12" r="8" fill="#ff8000"></circle>
-          <circle cx="36" cy="12" r="8" fill="#00a7e1"></circle>
-        </svg>
-      </span>
-      <span>Like on Letterboxd</span>
-    </a>
-  </section>
-  {% endif %}
-
   <footer class="review-footer">
-    <a href="{{ '/' | url }}" class="back-link">&larr; All Reviews</a>
+    <a href="{{ '/' | url }}" class="back-link">&larr; Back to Reviews</a>
+    
+    {% if letterboxdReviewUrl %}
+    <a href="{{ letterboxdReviewUrl }}" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+        Like on Letterboxd
+    </a>
+    {% endif %}
   </footer>
 </article>

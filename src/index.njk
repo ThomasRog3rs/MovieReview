@@ -1,72 +1,58 @@
 ---
 layout: layouts/base.njk
-title: Home
+title: Features & Reviews
 ---
 
-<section class="hero">
-  <h1>🎬 Movie Tweg</h1>
-  <p>Personal reviews of the films I've watched — from blockbusters to indie gems.</p>
-</section>
-
-<section class="letterboxd-cta" aria-label="Follow on Letterboxd">
-  <p class="letterboxd-cta-text">Track what I am watching and see fresh ratings first.</p>
-  <a
-    href="https://letterboxd.com/Tweg5/"
-    class="letterboxd-link letterboxd-link-cta"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Follow Tweg5 on Letterboxd"
-  >
-    <span class="letterboxd-icon" aria-hidden="true">
-      <svg viewBox="0 0 64 24" role="img" focusable="false">
-        <circle cx="12" cy="12" r="8" fill="#40bc67"></circle>
-        <circle cx="24" cy="12" r="8" fill="#ff8000"></circle>
-        <circle cx="36" cy="12" r="8" fill="#00a7e1"></circle>
-      </svg>
-    </span>
-    <span>Follow me on Letterboxd</span>
-  </a>
-</section>
-
-<section class="reviews-list">
-  {% if collections.reviews and collections.reviews.length %}
-    <ul class="review-cards">
-      {% for review in collections.reviews %}
-      <li class="review-card">
-        <a href="{{ review.url | url }}">
-          <div class="card-content">
-            <h2 class="card-title">{{ review.data.title }}</h2>
-
-            <div class="card-meta">
-              {% if review.data.rating %}
-              <span class="card-rating">
-                {% for i in range(0, review.data.rating) %}⭐{% endfor %}
-                {{ review.data.ratingDisplay or review.data.rating }}/5
-              </span>
-              {% endif %}
-
-              {% if review.data.year %}
-              <span class="card-year">{{ review.data.year }}</span>
-              {% endif %}
-
-              {% if review.data.director %}
-              <span class="card-director">Dir. {{ review.data.director }}</span>
-              {% endif %}
-            </div>
-
-            {% if review.templateContent %}
-            <p class="card-tagline">{{ review.templateContent | excerpt }}</p>
-            {% endif %}
-
-            <time class="card-date" datetime="{{ review.date | htmlDateString }}">
-              {{ review.date | readableDate }}
-            </time>
-          </div>
+<div class="container">
+    <section class="hero">
+      <h1>Tweg Movie Reviews</h1>
+      <p>A cinematic journal of reviews, essays, and notes written in the dark.</p>
+      <div class="hero-actions">
+        <a
+          href="https://letterboxd.com/tweg5/"
+          class="btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Letterboxd
         </a>
-      </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p class="no-reviews">No reviews yet — check back soon!</p>
-  {% endif %}
-</section>
+        <a href="{{ '/about/' | url }}" class="btn-secondary">About</a>
+      </div>
+    </section>
+
+    <h2 class="section-title" id="latest-reviews">Latest Reviews</h2>
+    
+    <section class="reviews-list">
+      {% if collections.reviews and collections.reviews.length %}
+        <div class="reviews-grid">
+          {% for review in collections.reviews %}
+          <article class="review-card">
+            <a href="{{ review.url | url }}">
+                <h3 class="card-title">{{ review.data.title }}</h3>
+                <div class="card-meta">
+                  {% if review.data.rating %}
+                  <span class="card-rating">
+                    {% for i in range(0, review.data.rating) %}★{% endfor %}
+                  </span>
+                  {% endif %}
+                  {% if review.data.year %}
+                  <span class="card-year">{{ review.data.year }}</span>
+                  {% endif %}
+                  {% if review.data.director %}
+                  <span class="card-director">Dir. {{ review.data.director }}</span>
+                  {% endif %}
+                </div>
+                {% if review.data.tagline %}
+                <p class="card-tagline">{{ review.data.tagline }}</p>
+                {% elif review.templateContent %}
+                <p class="card-tagline">{{ review.templateContent | excerpt }}</p>
+                {% endif %}
+            </a>
+          </article>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="no-reviews">The projector is warming up. Check back soon for reviews.</p>
+      {% endif %}
+    </section>
+</div>

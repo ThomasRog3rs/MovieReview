@@ -3,46 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% if title %}{{ title }} | {% endif %}Movie Tweg</title>
+    <title>{% if title %}{{ title }} | {% endif %}Tweg Movie Reviews</title>
     <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
   </head>
-  <body>
-    <header class="site-header">
+  <body{% if page.url == '/' %} class="home-page"{% endif %}>
+    <header class="site-header" id="site-header">
       <div class="container">
-        <a href="{{ '/' | url }}" class="site-title" aria-label="Movie Tweg home">
-          <img src="{{ '/logo.jpg' | url }}" alt="Movie Tweg logo" class="site-logo" />
-          <span class="site-title-text">Movie Tweg</span>
+        <a href="{{ '/' | url }}" class="site-title" aria-label="Tweg Movie Reviews home">
+          Tweg Movie Reviews
         </a>
-        <nav>
-          <a href="{{ '/' | url }}">Home</a>
+        <nav class="site-nav">
+          <a href="{{ '/' | url }}#latest-reviews">Reviews</a>
           <a href="{{ '/about/' | url }}">About</a>
         </nav>
       </div>
     </header>
 
-    <main class="container">
+    <main>
       {{ content | safe }}
     </main>
 
+    {% if page.url == '/' %}
+    <script>
+      const header = document.querySelector('#site-header');
+      const reviewsHeading = document.querySelector('#latest-reviews');
+
+      if (header && reviewsHeading) {
+        const updateHeader = () => {
+          header.classList.toggle(
+            'is-visible',
+            reviewsHeading.getBoundingClientRect().top <= header.offsetHeight
+          );
+        };
+
+        updateHeader();
+        window.addEventListener('scroll', updateHeader, { passive: true });
+      }
+    </script>
+    {% endif %}
+
     <footer class="site-footer">
       <div class="container">
-        <p class="footer-brand">Movie Tweg &copy; {% currentYear %}</p>
-        <a
-          href="https://letterboxd.com/Tweg5/"
-          class="letterboxd-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Follow Tweg5 on Letterboxd"
-        >
-          <span class="letterboxd-icon" aria-hidden="true">
-            <svg viewBox="0 0 64 24" role="img" focusable="false">
-              <circle cx="12" cy="12" r="8" fill="#40bc67"></circle>
-              <circle cx="24" cy="12" r="8" fill="#ff8000"></circle>
-              <circle cx="36" cy="12" r="8" fill="#00a7e1"></circle>
-            </svg>
-          </span>
-          <span>Follow me on Letterboxd</span>
-        </a>
+        <nav class="footer-nav">
+            <a href="{{ '/' | url }}">Home</a>
+            <a href="{{ '/about/' | url }}">About</a>
+            <a href="https://letterboxd.com/tweg5/" target="_blank" rel="noopener">Letterboxd</a>
+        </nav>
+        <p class="footer-copy">Tweg Movie Reviews &copy; {% currentYear %} &mdash; Written after midnight.</p>
       </div>
     </footer>
   </body>
