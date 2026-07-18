@@ -1,6 +1,6 @@
 ---
 title: "Avatar"
-rating: 3
+rating: 3.5
 ratingDisplay: "3.5"
 letterboxdReviewUrl: "https://letterboxd.com/tweg5/film/avatar/"
 date: 2026-07-10
