@@ -1,7 +1,7 @@
 ---
 title: "Mickey 17"
-rating: 3.5
-ratingDisplay: "3.5"
+rating: 3
+ratingDisplay: "3"
 letterboxdReviewUrl: "https://letterboxd.com/tweg5/film/mickey-17/"
 date: 2026-07-18
 ---
@@ -16,4 +16,4 @@ However, this movie isn't without its shortcomings as one of the weakest entries
 
 On the plus side, I'd never seen Pattinson in anything other than *Twilight* so it was nice to see that he actually has some range and depth to him as an actor. He was a true standout in this movie, I hope to see more of him on the big screen soon.
 
-3.5/5 - **worth watching**.
+3/5 - **worth watching**.
