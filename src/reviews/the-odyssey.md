@@ -2,7 +2,7 @@
 title: "The Odyssey"
 rating: 5
 ratingDisplay: "5"
-letterboxdReviewUrl: "https://letterboxd.com/tweg5/film/the-odyssey/"
+letterboxdReviewUrl: "https://boxd.it/fl1YmH"
 date: 2026-07-19
 ---
 
