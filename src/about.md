@@ -18,7 +18,7 @@ permalink: /about/
     </p>
     <p>
       You can also view this site's source on
-      <a href="https://github.com/ThomasRog3rs/MovieReview" target="_blank" rel="noopener noreferrer">GitHub</a>.
+      <a href="https://github.com/ThomasRog3rs/MovieReview" target="_blank" rel="noopener noreferrer">GitHub (opens in new tab)</a>.
     </p>
 
     <section class="letterboxd-cta-block" aria-label="Follow on Letterboxd">
